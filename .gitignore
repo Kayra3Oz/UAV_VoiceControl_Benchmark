@@ -6,9 +6,6 @@ __pycache__/
 # Daten (komplett ignorieren — siehe README für Datenquelle)
 data/
 
-# Modelle
-models/
-
 # Ergebnisse & Logs (lokal generiert)
 results/*.csv
 logs/
