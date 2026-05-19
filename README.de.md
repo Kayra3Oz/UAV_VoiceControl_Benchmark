@@ -2,7 +2,7 @@
 
 > **[English Version](README.md)**
 
-Ein Benchmark-Projekt, das drei verschiedene sprachgesteuerte UAV-Pipelines auf einer **DJI Tello** Drohne vergleicht. Das Projekt untersucht den Trade-off zwischen Latenz, Genauigkeit und Systemkomplexität bei drei grundlegend unterschiedlichen Ansätzen: einem leichtgewichtigen CNN-Klassifizierer sowie zwei LLM-basierten Pipelines mit Whisper zur Spracherkennung und LLaMA zur Befehlsextraktion.
+Ein Benchmark-Projekt, das drei verschiedene sprachgesteuerte UAV-Pipelines auf einer **DJI Tello EDU** Drohne vergleicht. Das Projekt untersucht den Trade-off zwischen Latenz, Genauigkeit und Systemkomplexität bei drei grundlegend unterschiedlichen Ansätzen: einem leichtgewichtigen CNN-Klassifizierer sowie zwei LLM-basierten Pipelines mit Whisper zur Spracherkennung und LLaMA zur Befehlsextraktion.
 
 ---
 
@@ -33,7 +33,7 @@ Dieses Projekt vergleicht drei Sprachsteuerungs-Pipelines für die UAV-Navigatio
 | | Model A | Model B | Model C |
 |---|---|---|---|
 | **Ansatz** | CNN Keyword Spotting | Whisper + LLaMA 3.2:3b | Whisper + LLaMA 3.1:8b |
-| **Aufnahmedauer** | 1 Sekunde | 5 Sekunden | 3 Sekunden |
+| **Aufnahmedauer** | 1 Sekunde | 3 Sekunden | 3 Sekunden |
 | **Spracherkennung** | Mel-Spektrogramm → CNN | OpenAI Whisper (base) | OpenAI Whisper (base) |
 | **Befehlsextraktion** | Direkte Klassifikation | LLaMA via Ollama API | LLaMA via Ollama API |
 | **Parameter möglich** | Nein (feste Abstände) | Ja (z.B. „vorwärts 80 cm") | Ja (z.B. „vorwärts 80 cm") |
@@ -133,7 +133,7 @@ UAV_VoiceControl_Benchmark/
 │   └── model_a.ipynb           # CNN-Training und Evaluation
 │
 ├── models/
-│   └── model_a.keras           # Trainiertes CNN-Modell (nicht im Repository)
+│   └── model_a.keras           # Trainiertes CNN-Modell (im Repository enthalten)
 │
 ├── data/                       # Nicht im Repository — siehe Datensatz-Abschnitt
 │   ├── raw/
@@ -202,7 +202,7 @@ ollama serve
 
 ### Hardware
 
-- **DJI Tello** Drohne (erforderlich für die Drohnensteuerungs-Module)
+- **DJI Tello EDU** Drohne (erforderlich für die Drohnensteuerungs-Module)
 - Mikrofon (eingebaut oder extern)
 - Python 3.9 oder höher empfohlen
 
@@ -291,7 +291,7 @@ python drone_control_model_b.py
 ```
 
 **Ablauf:**
-1. **Enter** drücken, um eine 5-Sekunden-Aufnahme zu starten
+1. **Enter** drücken, um eine 3-Sekunden-Aufnahme zu starten
 2. Whisper transkribiert die Sprache in Text
 3. LLaMA 3.2:3b extrahiert einen strukturierten Befehl aus der Transkription
 4. Befehl + Parameter werden an die Drohne gesendet

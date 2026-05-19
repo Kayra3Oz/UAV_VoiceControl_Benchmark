@@ -2,7 +2,7 @@
 
 > **[Deutsche Version](README.de.md)**
 
-A benchmark comparing three different voice-controlled UAV pipelines on a **DJI Tello** drone. The project evaluates the trade-off between latency, accuracy, and system complexity across three distinct approaches: a lightweight CNN classifier, and two LLM-based pipelines using Whisper for speech-to-text and LLaMA for command extraction.
+A benchmark comparing three different voice-controlled UAV pipelines on a **DJI Tello EDU** drone. The project evaluates the trade-off between latency, accuracy, and system complexity across three distinct approaches: a lightweight CNN classifier, and two LLM-based pipelines using Whisper for speech-to-text and LLaMA for command extraction.
 
 ---
 
@@ -33,7 +33,7 @@ This project benchmarks three voice control pipelines for UAV navigation:
 | | Model A | Model B | Model C |
 |---|---|---|---|
 | **Approach** | CNN Keyword Spotting | Whisper + LLaMA 3.2:3b | Whisper + LLaMA 3.1:8b |
-| **Recording Duration** | 1 second | 5 seconds | 3 seconds |
+| **Recording Duration** | 1 second | 3 seconds | 3 seconds |
 | **Speech Recognition** | Mel Spectrogram → CNN | OpenAI Whisper (base) | OpenAI Whisper (base) |
 | **Command Extraction** | Direct classification | LLaMA via Ollama API | LLaMA via Ollama API |
 | **Supports Parameters** | No (fixed distances) | Yes (e.g. "forward 80 cm") | Yes (e.g. "forward 80 cm") |
@@ -133,7 +133,7 @@ UAV_VoiceControl_Benchmark/
 │   └── model_a.ipynb           # CNN training and evaluation
 │
 ├── models/
-│   └── model_a.keras           # Trained CNN model (not in repository)
+│   └── model_a.keras           # Trained CNN model (included)
 │
 ├── data/                       # Not in repository — see Dataset section
 │   ├── raw/
@@ -202,7 +202,7 @@ ollama serve
 
 ### Hardware
 
-- **DJI Tello** drone (required for drone control modules)
+- **DJI Tello EDU** drone (required for drone control modules)
 - Microphone (built-in or external)
 - Python 3.9 or higher recommended
 
@@ -291,7 +291,7 @@ python drone_control_model_b.py
 ```
 
 **How it works:**
-1. Press **Enter** to start a 5-second recording
+1. Press **Enter** to start a 3-second recording
 2. Whisper transcribes your speech to text
 3. LLaMA 3.2:3b extracts a structured command from the transcription
 4. The command + parameter is sent to the drone
