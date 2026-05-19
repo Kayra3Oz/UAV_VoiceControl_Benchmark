@@ -41,7 +41,7 @@ if not _csv_file.exists():
 
 # ── Konfiguration ──────────────────────────────────────────────────────────
 SAMPLE_RATE = 16000
-DURATION = 5.0
+DURATION = 3.0
 
 OLLAMA_URL = 'http://localhost:11434/api/generate'
 OLLAMA_MODEL = 'llama3.2:3b'
@@ -189,7 +189,7 @@ if __name__ == '__main__':
 
     connect_to_drone()
 
-    log.info('Enter -> sprechen (5 Sekunden)')
+    log.info('Enter -> sprechen (3 Sekunden)')
     log.info('q + Enter -> Programm beenden')
 
     while True:
