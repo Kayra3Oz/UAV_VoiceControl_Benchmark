@@ -1,0 +1,11 @@
+librosa
+numpy
+matplotlib
+scikit-learn
+tensorflow
+sounddevice
+djitellopy
+tqdm
+pandas
+requests
+openai-whisper

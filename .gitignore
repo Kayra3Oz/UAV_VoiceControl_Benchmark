@@ -1,0 +1,21 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+
+# Daten (komplett ignorieren — siehe README für Datenquelle)
+data/
+
+# Modelle
+models/
+
+# Ergebnisse & Logs (lokal generiert)
+results/*.csv
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
